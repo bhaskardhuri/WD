@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 4 - Contact Form Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .header-title {
+            text-align: center;
+            flex: 1;
+        }
+        .header-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .header-title p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        .theory-section {
+            background: #ffffff;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .theory-section h2 {
+            color: #6366f1;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .theory-questions {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-left: 4px solid #6366f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .theory-questions ol {
+            padding-left: 20px;
+        }
+        .theory-questions li {
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #374151;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .code-section {
+            background: #ffffff;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .code-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .code-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .language-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            padding-top: 20px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #6b7280;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .tab-btn.active {
+            background: #6366f1;
+            color: white;
+            border-color: #6366f1;
+        }
+        .tab-btn:hover:not(.active) {
+            background: #e2e8f0;
+            color: #374151;
+        }
+        .code-content {
+            padding: 0 20px 20px;
+        }
+        .code-block {
+            display: none;
+            background: #1e293b;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .code-block.active {
+            display: block;
+        }
+        .code-block pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            margin: 0;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .output-section {
+            background: #ffffff;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .output-header {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .output-content {
+            padding: 20px;
+        }
+        .output-display {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 400px;
+            overflow-y: auto;
+        }
+        .preview-frame {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+        }
+        .run-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .run-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .language-tabs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="header-title">
+                <h1>Experiment 4</h1>
+                <p>Contact Form Designs using HTML Form Elements</p>
+            </div>
+            <div style="width: 120px;"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Theory Section -->
+        <section class="theory-section">
+            <h2><i class="fas fa-book"></i> Theory</h2>
+            <div class="theory-questions">
+                <ol>
+                    <li>What are the main form elements in HTML and their purposes?</li>
+                    <li>How do radio buttons and checkboxes differ in user interaction?</li>
+                    <li>Explain the use of <code>&lt;select&gt;</code> and <code>&lt;option&gt;</code> tags in forms.</li>
+                    <li>What is the difference between the submit and reset buttons in a form?</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Code Section -->
+            <div class="code-section">
+                <div class="code-header">
+                    <h3><i class="fas fa-code"></i> Contact Form Examples</h3>
+                    <button class="copy-btn" onclick="copyCode()">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                <div class="language-tabs">
+                    <button class="tab-btn active" onclick="showCode('basic')">Basic Contact Form</button>
+                    <button class="tab-btn" onclick="showCode('radio')">With Radio Buttons</button>
+                    <button class="tab-btn" onclick="showCode('checkbox')">With Checkboxes</button>
+                    <button class="tab-btn" onclick="showCode('dropdown')">With Dropdown</button>
+                </div>
+                <div class="code-content">
+                    <!-- Basic Contact Form -->
+                    <div class="code-block active" id="basic-code">
+                        <pre><code>&lt;form action="#" method="post"&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+                    </div>
+                    <!-- Contact Form with Radio Buttons -->
+                    <div class="code-block" id="radio-code">
+                        <pre><code>&lt;form action="#" method="post"&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;Gender:&lt;/label&gt;
+    &lt;input type="radio" id="male" name="gender" value="male"&gt;
+    &lt;label for="male"&gt;Male&lt;/label&gt;
+    &lt;input type="radio" id="female" name="gender" value="female"&gt;
+    &lt;label for="female"&gt;Female&lt;/label&gt;
+    &lt;input type="radio" id="other" name="gender" value="other"&gt;
+    &lt;label for="other"&gt;Other&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+                    </div>
+                    <!-- Contact Form with Checkboxes -->
+                    <div class="code-block" id="checkbox-code">
+                        <pre><code>&lt;form action="#" method="post"&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;Preferred Contact Method:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="checkbox" id="contact-email" name="contact_method" value="email"&gt;
+    &lt;label for="contact-email"&gt;Email&lt;/label&gt;
+    &lt;input type="checkbox" id="contact-phone" name="contact_method" value="phone"&gt;
+    &lt;label for="contact-phone"&gt;Phone&lt;/label&gt;
+    &lt;input type="checkbox" id="contact-whatsapp" name="contact_method" value="whatsapp"&gt;
+    &lt;label for="contact-whatsapp"&gt;WhatsApp&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+                    </div>
+                    <!-- Contact Form with Dropdown -->
+                    <div class="code-block" id="dropdown-code">
+                        <pre><code>&lt;form action="#" method="post"&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="inquiry"&gt;Type of Inquiry:&lt;/label&gt;
+    &lt;select id="inquiry" name="inquiry" required&gt;
+        &lt;option value=""&gt;Select&lt;/option&gt;
+        &lt;option value="general"&gt;General&lt;/option&gt;
+        &lt;option value="support"&gt;Support&lt;/option&gt;
+        &lt;option value="feedback"&gt;Feedback&lt;/option&gt;
+        &lt;option value="other"&gt;Other&lt;/option&gt;
+    &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Section -->
+            <div class="output-section">
+                <div class="output-header">
+                    <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                    <div class="preview-controls">
+                        <button class="run-btn" onclick="previewCode()">
+                            <i class="fas fa-play"></i> Preview
+                        </button>
+                        <button class="open-btn" onclick="openInNewTab()">
+                            <i class="fas fa-external-link-alt"></i> Open in New Tab
+                        </button>
+                    </div>
+                </div>
+                <div class="output-content">
+                    <div class="output-display" id="outputDisplay">
+                        <iframe class="preview-frame" id="previewFrame" src="about:blank"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentCode = 'basic';
+        function showCode(codeType) {
+            document.querySelectorAll('.code-block').forEach(block => {
+                block.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(codeType + '-code').classList.add('active');
+            event.target.classList.add('active');
+            currentCode = codeType;
+        }
+        function copyCode() {
+            const activeCodeBlock = document.querySelector('.code-block.active pre code');
+            const text = activeCodeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const copyBtn = document.querySelector('.copy-btn');
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.style.background = 'rgba(16, 185, 129, 0.3)';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+                }, 2000);
+            });
+        }
+        function previewCode() {
+            const activeCodeBlock = document.querySelector('.code-block.active pre code');
+            const htmlCode = activeCodeBlock.textContent;
+            const previewFrame = document.getElementById('previewFrame');
+            const blob = new Blob([htmlCode], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            previewFrame.src = url;
+            const runBtn = document.querySelector('.run-btn');
+            const originalText = runBtn.innerHTML;
+            runBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            runBtn.disabled = true;
+            setTimeout(() => {
+                runBtn.innerHTML = originalText;
+                runBtn.disabled = false;
+            }, 1000);
+        }
+        function openInNewTab() {
+            const activeCodeBlock = document.querySelector('.code-block.active pre code');
+            const htmlCode = activeCodeBlock.textContent;
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(htmlCode);
+            newWindow.document.close();
+            const openBtn = document.querySelector('.open-btn');
+            const originalText = openBtn.innerHTML;
+            openBtn.innerHTML = '<i class="fas fa-check"></i> Opened!';
+            openBtn.style.background = '#10b981';
+            setTimeout(() => {
+                openBtn.innerHTML = originalText;
+                openBtn.style.background = '#8b5cf6';
+            }, 2000);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                previewCode();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
