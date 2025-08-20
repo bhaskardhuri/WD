@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -379,6 +377,7 @@
             <div class="tutorial-section">
                 <div class="section-title">CSS Basics</div>
                 <button class="nav-item active" onclick="showModule('css-intro')">CSS Introduction</button>
+                <button class="nav-item" onclick="showModule('css-types')">Types of CSS</button>
                 <button class="nav-item" onclick="showModule('css-syntax')">CSS Syntax</button>
                 <button class="nav-item" onclick="showModule('css-selectors')">CSS Selectors</button>
                 <button class="nav-item" onclick="showModule('css-colors')">CSS Colors</button>
@@ -386,31 +385,25 @@
                 <button class="nav-item" onclick="showModule('css-borders')">CSS Borders</button>
                 <button class="nav-item" onclick="showModule('css-margins')">CSS Margins</button>
                 <button class="nav-item" onclick="showModule('css-padding')">CSS Padding</button>
+                <!-- Add this line for the properties section -->
+                <button class="nav-item" onclick="showModule('css-all-properties')">CSS Properties Reference</button>
             </div>
 
             <div class="tutorial-section">
-                <div class="section-title">CSS Text</div>
-                <button class="nav-item" onclick="showModule('css-text')">CSS Text</button>
-                <button class="nav-item" onclick="showModule('css-fonts')">CSS Fonts</button>
-                <button class="nav-item" onclick="showModule('css-text-effects')">CSS Text Effects</button>
-            </div>
-
-            <div class="tutorial-section">
-                <div class="section-title">CSS Layout</div>
-                <button class="nav-item" onclick="showModule('css-box-model')">CSS Box Model</button>
-                <button class="nav-item" onclick="showModule('css-display')">CSS Display</button>
-                <button class="nav-item" onclick="showModule('css-position')">CSS Position</button>
-                <button class="nav-item" onclick="showModule('css-float')">CSS Float</button>
-                <button class="nav-item" onclick="showModule('css-flexbox')">CSS Flexbox</button>
-                <button class="nav-item" onclick="showModule('css-grid')">CSS Grid</button>
-            </div>
-
-            <div class="tutorial-section">
-                <div class="section-title">CSS Advanced</div>
-                <button class="nav-item" onclick="showModule('css-responsive')">CSS Responsive</button>
-                <button class="nav-item" onclick="showModule('css-animations')">CSS Animations</button>
-                <button class="nav-item" onclick="showModule('css-transforms')">CSS Transforms</button>
-                <button class="nav-item" onclick="showModule('css-variables')">CSS Variables</button>
+                <div class="section-title">CSS Advanced Topics</div>
+                <button class="nav-item" onclick="showModule('css-units')">CSS Units</button>
+                <button class="nav-item" onclick="showModule('css-specificity')">CSS Specificity &amp; !important</button>
+                <button class="nav-item" onclick="showModule('css-pseudo')">CSS Pseudo-classes &amp; Pseudo-elements</button>
+                <button class="nav-item" onclick="showModule('css-media-queries')">CSS Media Queries</button>
+                <button class="nav-item" onclick="showModule('css-filters')">CSS Filters</button>
+                <button class="nav-item" onclick="showModule('css-gradients')">CSS Gradients</button>
+                <button class="nav-item" onclick="showModule('css-shadows')">CSS Shadows</button>
+                <button class="nav-item" onclick="showModule('css-best-practices')">CSS Best Practices</button>
+                <button class="nav-item" onclick="showModule('css-frameworks')">CSS Frameworks</button>
+                <button class="nav-item" onclick="showModule('css-debugging')">CSS Debugging Tools</button>
+                <button class="nav-item" onclick="showModule('css-flexbox-grid-deep')">Flexbox &amp; Grid Deep Dive</button>
+                <button class="nav-item" onclick="showModule('css-print')">CSS Print Styles</button>
+                <button class="nav-item" onclick="showModule('css-accessibility')">CSS Accessibility</button>
             </div>
         </nav>
 
@@ -419,12 +412,10 @@
             <div class="module active" id="css-intro">
                 <h1>CSS Introduction</h1>
                 <p>CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media.</p>
-
                 <div class="info-box">
                     <strong>What You Should Already Know</strong><br>
                     Before studying CSS, you should have a basic knowledge of HTML.
                 </div>
-
                 <h2>What is CSS?</h2>
                 <ul style="margin-left: 2rem; margin-bottom: 1rem;">
                     <li>CSS stands for Cascading Style Sheets</li>
@@ -432,7 +423,6 @@
                     <li>CSS saves a lot of work. It can control the layout of multiple web pages all at once</li>
                     <li>External stylesheets are stored in CSS files</li>
                 </ul>
-
                 <h2>CSS Example</h2>
                 <div class="example-box">
                     <div class="example-header">
@@ -454,18 +444,69 @@ p {
   font-size: 20px;
 }
                         </div>
-                        <button class="try-it-btn">
-                            <i class="fas fa-play"></i> Try it Yourself
-                        </button>
                     </div>
                 </div>
-
                 <h2>CSS Solved a Big Problem</h2>
                 <p>HTML was NEVER intended to contain tags for formatting a web page! HTML was created to describe the content of a web page.</p>
                 <p>When tags like &lt;font&gt;, and color attributes were added to the HTML 3.2 specification, it started a nightmare for web developers. Development of large websites, where fonts and color information were added to every single page, became a long and expensive process.</p>
-
                 <div class="navigation-buttons">
                     <button class="nav-btn" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-types')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Types Module -->
+            <div class="module" id="css-types">
+                <h1>Types of CSS</h1>
+                <p>There are three main ways to add CSS to HTML documents:</p>
+                <ul style="margin-left:2rem;">
+                    <li><strong>Inline CSS</strong>: Uses the <code>style</code> attribute inside HTML elements.</li>
+                    <li><strong>Internal CSS</strong>: Uses a <code>&lt;style&gt;</code> block inside the <code>&lt;head&gt;</code> section of the HTML document.</li>
+                    <li><strong>External CSS</strong>: Uses an external <code>.css</code> file linked with the <code>&lt;link&gt;</code> tag.</li>
+                </ul>
+                <h2>Inline CSS Example</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+&lt;h1 style="color:blue; text-align:center;"&gt;This is a heading&lt;/h1&gt;
+                        </div>
+                    </div>
+                </div>
+                <h2>Internal CSS Example</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+&lt;head&gt;
+  &lt;style&gt;
+    body {background-color: linen;}
+    h1 {color: maroon;}
+  &lt;/style&gt;
+&lt;/head&gt;
+                        </div>
+                    </div>
+                </div>
+                <h2>External CSS Example</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box success">
+                    <strong>Tip:</strong> External CSS is the most efficient method for styling large websites.
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-intro')">
                         <i class="fas fa-chevron-left"></i> Previous
                     </button>
                     <button class="nav-btn" onclick="showModule('css-syntax')">
@@ -706,8 +747,384 @@ p {
                 </div>
             </div>
 
-            <!-- Add more modules here following the same pattern -->
-            <!-- For brevity, I'll add a few more key modules -->
+            <!-- CSS Backgrounds Module -->
+            <div class="module" id="css-backgrounds">
+                <h1>CSS Backgrounds</h1>
+                <p>The CSS background properties are used to define the background effects for elements.</p>
+                <h2>Background Color</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+body {
+  background-color: lightblue;
+}
+                        </div>
+                        <div class="demo-result" style="background: lightblue; padding: 1rem;">This is a light blue background.</div>
+                    </div>
+                </div>
+                <h2>Background Image</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+body {
+  background-image: url('background.png');
+}
+                        </div>
+                    </div>
+                </div>
+                <h2>Background Repeat, Position, and Size</h2>
+                <ul style="margin-left:2rem;">
+                    <li><code>background-repeat</code>: repeat, no-repeat, repeat-x, repeat-y</li>
+                    <li><code>background-position</code>: left, right, center, top, bottom, or coordinates</li>
+                    <li><code>background-size</code>: auto, cover, contain, or specific size</li>
+                </ul>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-colors')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-borders')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Borders Module -->
+            <div class="module" id="css-borders">
+                <h1>CSS Borders</h1>
+                <p>Borders are used to define the outline of an element.</p>
+                <h2>Border Properties</h2>
+                <ul style="margin-left:2rem;">
+                    <li><code>border-width</code></li>
+                    <li><code>border-style</code> (solid, dashed, dotted, double, groove, ridge, inset, outset, none, hidden)</li>
+                    <li><code>border-color</code></li>
+                    <li><code>border-radius</code> (for rounded corners)</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+p {
+  border: 2px solid #6366f1;
+  border-radius: 8px;
+  padding: 10px;
+}
+                        </div>
+                        <div class="demo-result" style="border:2px solid #6366f1; border-radius:8px; padding:10px;">This paragraph has a border and rounded corners.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-backgrounds')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-margins')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Margins Module -->
+            <div class="module" id="css-margins">
+                <h1>CSS Margins</h1>
+                <p>Margins are used to create space around elements, outside of any defined borders.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>margin-top</code></li>
+                    <li><code>margin-right</code></li>
+                    <li><code>margin-bottom</code></li>
+                    <li><code>margin-left</code></li>
+                    <li><code>margin</code> (shorthand)</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  margin: 40px 20px;
+}
+                        </div>
+                        <div class="demo-result" style="margin:40px 20px; background:#f1f5f9; padding:10px;">This div has margin.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-borders')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-padding')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Padding Module -->
+            <div class="module" id="css-padding">
+                <h1>CSS Padding</h1>
+                <p>Padding is used to create space around an element's content, inside of any defined borders.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>padding-top</code></li>
+                    <li><code>padding-right</code></li>
+                    <li><code>padding-bottom</code></li>
+                    <li><code>padding-left</code></li>
+                    <li><code>padding</code> (shorthand)</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  padding: 30px 10px;
+}
+                        </div>
+                        <div class="demo-result" style="padding:30px 10px; background:#f1f5f9;">This div has padding.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-margins')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-text')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Text Module -->
+            <div class="module" id="css-text">
+                <h1>CSS Text</h1>
+                <p>CSS provides several properties for formatting text.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>color</code></li>
+                    <li><code>text-align</code></li>
+                    <li><code>text-decoration</code></li>
+                    <li><code>text-transform</code></li>
+                    <li><code>letter-spacing</code></li>
+                    <li><code>line-height</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+h1 {
+  color: #6366f1;
+  text-align: center;
+  text-transform: uppercase;
+}
+                        </div>
+                        <div class="demo-result" style="color:#6366f1; text-align:center; text-transform:uppercase;">This is a heading</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-padding')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-fonts')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Fonts Module -->
+            <div class="module" id="css-fonts">
+                <h1>CSS Fonts</h1>
+                <p>CSS allows you to specify the font of an element using the <code>font-family</code> property.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>font-family</code></li>
+                    <li><code>font-size</code></li>
+                    <li><code>font-style</code></li>
+                    <li><code>font-weight</code></li>
+                    <li><code>font-variant</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  font-weight: bold;
+}
+                        </div>
+                        <div class="demo-result" style="font-family:'Courier New', Courier, monospace; font-size:18px; font-weight:bold;">This is a paragraph with custom font.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-text')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-text-effects')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Text Effects Module -->
+            <div class="module" id="css-text-effects">
+                <h1>CSS Text Effects</h1>
+                <p>CSS provides several properties for adding effects to text, such as shadows and spacing.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>text-shadow</code></li>
+                    <li><code>letter-spacing</code></li>
+                    <li><code>word-spacing</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+h2 {
+  text-shadow: 2px 2px 5px #6366f1;
+  letter-spacing: 2px;
+}
+                        </div>
+                        <div class="demo-result" style="text-shadow:2px 2px 5px #6366f1; letter-spacing:2px;">Text Shadow Example</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-fonts')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-box-model')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Box Model Module -->
+            <div class="module" id="css-box-model">
+                <h1>CSS Box Model</h1>
+                <p>All HTML elements can be considered as boxes. The CSS box model describes the rectangular boxes generated for elements in the document tree and consists of: margins, borders, padding, and the actual content.</p>
+                <img src="https://www.w3schools.com/css/box-model.gif" alt="CSS Box Model" style="max-width:300px; margin:1rem 0;">
+                <ul style="margin-left:2rem;">
+                    <li><strong>Content</strong> - The actual content of the box, where text and images appear</li>
+                    <li><strong>Padding</strong> - Clears an area around the content. The padding is transparent</li>
+                    <li><strong>Border</strong> - A border that goes around the padding and content</li>
+                    <li><strong>Margin</strong> - Clears an area outside the border. The margin is transparent</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  width: 300px;
+  padding: 25px;
+  border: 5px solid gray;
+  margin: 20px;
+}
+                        </div>
+                        <div class="demo-result" style="width:300px; padding:25px; border:5px solid gray; margin:20px;">Box Model Example</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-text-effects')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-display')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Display Module -->
+            <div class="module" id="css-display">
+                <h1>CSS Display</h1>
+                <p>The <code>display</code> property specifies if/how an element is displayed.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>block</code></li>
+                    <li><code>inline</code></li>
+                    <li><code>inline-block</code></li>
+                    <li><code>none</code></li>
+                    <li><code>flex</code></li>
+                    <li><code>grid</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+span {
+  display: block;
+  background: #f1f5f9;
+  margin-bottom: 10px;
+}
+                        </div>
+                        <div class="demo-result" style="display:block; background:#f1f5f9; margin-bottom:10px;">This span is displayed as a block.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-box-model')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-position')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Position Module -->
+            <div class="module" id="css-position">
+                <h1>CSS Position</h1>
+                <p>The <code>position</code> property specifies the type of positioning method used for an element (static, relative, fixed, absolute, sticky).</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>static</code> (default)</li>
+                    <li><code>relative</code></li>
+                    <li><code>absolute</code></li>
+                    <li><code>fixed</code></li>
+                    <li><code>sticky</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  position: relative;
+  left: 30px;
+  top: 10px;
+}
+                        </div>
+                        <div class="demo-result" style="position:relative; left:30px; top:10px; background:#f1f5f9;">This div is moved 30px right and 10px down.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-display')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-float')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Float Module -->
+            <div class="module" id="css-float">
+                <h1>CSS Float</h1>
+                <p>The <code>float</code> property is used for positioning and formatting content, for example, let an image float left to the text in a container.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>float: left;</code></li>
+                    <li><code>float: right;</code></li>
+                    <li><code>float: none;</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+img {
+  float: right;
+  margin-left: 20px;
+}
+                        </div>
+                        <div class="demo-result">
+                            <img src="https://via.placeholder.com/80" style="float:right; margin-left:20px;">
+                            This text wraps around the floated image.
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-position')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-flexbox')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
 
             <!-- CSS Flexbox Module -->
             <div class="module" id="css-flexbox">
@@ -767,22 +1184,858 @@ p {
                 </div>
             </div>
 
-            <!-- Placeholder modules for other topics -->
-            <div class="module" id="css-backgrounds">
-                <h1>CSS Backgrounds</h1>
-                <p>The CSS background properties are used to add background effects for elements.</p>
-                <!-- Add content here -->
+            <!-- CSS Grid Module -->
+            <div class="module" id="css-grid">
+                <h1>CSS Grid</h1>
+                <p>CSS Grid Layout provides a two-dimensional grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.</p>
+                <div class="example-box">
+                    <div class="example-header">
+                        <i class="fas fa-code"></i> Example
+                    </div>
+                    <div class="example-content">
+                        <div class="code-block">
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+                        </div>
+                        <div class="demo-result" style="display:grid; grid-template-columns:auto auto auto; gap:10px;">
+                            <div style="background:#6366f1; color:white; padding:10px;">1</div>
+                            <div style="background:#8b5cf6; color:white; padding:10px;">2</div>
+                            <div style="background:#6366f1; color:white; padding:10px;">3</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="navigation-buttons">
-                    <button class="nav-btn" onclick="showModule('css-colors')">
+                    <button class="nav-btn" onclick="showModule('css-flexbox')">
                         <i class="fas fa-chevron-left"></i> Previous
                     </button>
-                    <button class="nav-btn" onclick="showModule('css-borders')">
+                    <button class="nav-btn" onclick="showModule('css-responsive')">
                         Next <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Add more modules as needed -->
+            <!-- CSS Responsive Module -->
+            <div class="module" id="css-responsive">
+                <h1>CSS Responsive</h1>
+                <p>Responsive web design makes your web page look good on all devices. Use CSS media queries to change styles based on device characteristics.</p>
+                <div class="example-box">
+                    <div class="example-header">
+                        <i class="fas fa-code"></i> Example
+                    </div>
+                    <div class="example-content">
+                        <div class="code-block">
+@media (max-width: 600px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+                        </div>
+                        <div class="info-box success">
+                            Resize your browser window to see the effect!
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-grid')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-animations')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Animations Module -->
+            <div class="module" id="css-animations">
+                <h1>CSS Animations</h1>
+                <p>CSS allows animation of most HTML elements without using JavaScript or Flash!</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>@keyframes</code></li>
+                    <li><code>animation-name</code></li>
+                    <li><code>animation-duration</code></li>
+                    <li><code>animation-delay</code></li>
+                    <li><code>animation-iteration-count</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+                        </div>
+                        <div class="demo-result" style="width:100px; height:100px; background-color:red; animation:example 4s;">
+                            <!-- Animation will not run in static HTML, but code is correct -->
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-responsive')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-transforms')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Transforms Module -->
+            <div class="module" id="css-transforms">
+                <h1>CSS Transforms</h1>
+                <p>The <code>transform</code> property applies a 2D or 3D transformation to an element.</p>
+                <ul style="margin-left:2rem;">
+                    <li><code>rotate()</code></li>
+                    <li><code>scale()</code></li>
+                    <li><code>translate()</code></li>
+                    <li><code>skew()</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  transform: rotate(20deg);
+}
+                        </div>
+                        <div class="demo-result" style="display:inline-block; transform:rotate(20deg); background:#f1f5f9; padding:10px;">Rotated Div</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-animations')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-variables')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Variables Module -->
+            <div class="module" id="css-variables">
+                <h1>CSS Variables</h1>
+                <p>CSS variables are custom properties that can be reused throughout a document.</p>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+:root {
+  --main-color: #6366f1;
+}
+
+h1 {
+  color: var(--main-color);
+}
+                        </div>
+                        <div class="demo-result" style="color:#6366f1;">This heading uses a CSS variable for its color.</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-transforms')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Important Properties Module -->
+            <div class="module" id="css-important-properties">
+                <h1>Important CSS Properties</h1>
+                <p>Here are some of the most commonly used CSS properties every beginner should know:</p>
+                <table class="property-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>color</td>
+                        <td>Sets the color of text</td>
+                        <td><code>color: red;</code></td>
+                    </tr>
+                    <tr>
+                        <td>background-color</td>
+                        <td>Sets the background color of an element</td>
+                        <td><code>background-color: yellow;</code></td>
+                    </tr>
+                    <tr>
+                        <td>font-size</td>
+                        <td>Sets the size of the font</td>
+                        <td><code>font-size: 18px;</code></td>
+                    </tr>
+                    <tr>
+                        <td>font-family</td>
+                        <td>Sets the font of the text</td>
+                        <td><code>font-family: Arial, sans-serif;</code></td>
+                    </tr>
+                    <tr>
+                        <td>margin</td>
+                        <td>Sets the outer space of an element</td>
+                        <td><code>margin: 20px;</code></td>
+                    </tr>
+                    <tr>
+                        <td>padding</td>
+                        <td>Sets the inner space of an element</td>
+                        <td><code>padding: 10px;</code></td>
+                    </tr>
+                    <tr>
+                        <td>border</td>
+                        <td>Sets the border around an element</td>
+                        <td><code>border: 1px solid #000;</code></td>
+                    </tr>
+                    <tr>
+                        <td>width / height</td>
+                        <td>Sets the width and height of an element</td>
+                        <td><code>width: 100px; height: 50px;</code></td>
+                    </tr>
+                    <tr>
+                        <td>display</td>
+                        <td>Specifies how an element is displayed</td>
+                        <td><code>display: block;</code></td>
+                    </tr>
+                    <tr>
+                        <td>position</td>
+                        <td>Specifies the positioning method</td>
+                        <td><code>position: absolute;</code></td>
+                    </tr>
+                </table>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-variables')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Most Important CSS Properties Module -->
+            <div class="module" id="css-all-properties">
+                <h1>Most Important CSS Properties</h1>
+                <p>This section lists the most commonly used CSS properties in web development, along with their use, syntax, and examples.</p>
+                <table class="property-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Use</th>
+                        <th>Syntax & Example</th>
+                    </tr>
+                    <tr>
+                        <td><code>color</code></td>
+                        <td>Sets the text color</td>
+                        <td><code>color: blue;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>background-color</code></td>
+                        <td>Sets the background color</td>
+                        <td><code>background-color: #f8fafc;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>background-image</code></td>
+                        <td>Sets a background image</td>
+                        <td><code>background-image: url('img.jpg');</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>font-size</code></td>
+                        <td>Sets the size of the font</td>
+                        <td><code>font-size: 18px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>font-family</code></td>
+                        <td>Sets the font type</td>
+                        <td><code>font-family: Arial, sans-serif;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>font-weight</code></td>
+                        <td>Sets the thickness of the font</td>
+                        <td><code>font-weight: bold;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>text-align</code></td>
+                        <td>Aligns text horizontally</td>
+                        <td><code>text-align: center;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>text-decoration</code></td>
+                        <td>Adds decoration to text (underline, line-through, etc.)</td>
+                        <td><code>text-decoration: underline;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>margin</code></td>
+                        <td>Sets the outer space of an element</td>
+                        <td><code>margin: 20px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>padding</code></td>
+                        <td>Sets the inner space of an element</td>
+                        <td><code>padding: 10px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>border</code></td>
+                        <td>Sets the border around an element</td>
+                        <td><code>border: 1px solid #000;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>border-radius</code></td>
+                        <td>Rounds the corners of an element</td>
+                        <td><code>border-radius: 8px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>width</code> / <code>height</code></td>
+                        <td>Sets the width and height of an element</td>
+                        <td><code>width: 200px; height: 100px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>display</code></td>
+                        <td>Specifies how an element is displayed</td>
+                        <td><code>display: flex;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>position</code></td>
+                        <td>Specifies the positioning method</td>
+                        <td><code>position: absolute;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>top, right, bottom, left</code></td>
+                        <td>Offsets for positioned elements</td>
+                        <td><code>top: 10px; left: 20px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>overflow</code></td>
+                        <td>Controls content overflow</td>
+                        <td><code>overflow: auto;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>z-index</code></td>
+                        <td>Controls stacking order</td>
+                        <td><code>z-index: 10;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>float</code></td>
+                        <td>Floats an element to the left or right</td>
+                        <td><code>float: right;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>clear</code></td>
+                        <td>Specifies what elements can float beside the cleared element</td>
+                        <td><code>clear: both;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>opacity</code></td>
+                        <td>Sets the transparency level</td>
+                        <td><code>opacity: 0.5;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>box-shadow</code></td>
+                        <td>Adds shadow to elements</td>
+                        <td><code>box-shadow: 2px 2px 8px #888;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>transition</code></td>
+                        <td>Adds transition effects</td>
+                        <td><code>transition: all 0.3s;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>cursor</code></td>
+                        <td>Specifies the mouse cursor to be displayed</td>
+                        <td><code>cursor: pointer;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>list-style</code></td>
+                        <td>Sets the style of list items</td>
+                        <td><code>list-style: square inside;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>outline</code></td>
+                        <td>Sets a line outside the border edge</td>
+                        <td><code>outline: 2px solid red;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>visibility</code></td>
+                        <td>Shows or hides an element</td>
+                        <td><code>visibility: hidden;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>vertical-align</code></td>
+                        <td>Aligns elements vertically</td>
+                        <td><code>vertical-align: middle;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>max-width</code> / <code>min-width</code></td>
+                        <td>Sets the maximum/minimum width</td>
+                        <td><code>max-width: 100%;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>max-height</code> / <code>min-height</code></td>
+                        <td>Sets the maximum/minimum height</td>
+                        <td><code>min-height: 50px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>object-fit</code></td>
+                        <td>Specifies how an image or video should be resized to fit its container</td>
+                        <td><code>object-fit: cover;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>order</code></td>
+                        <td>Specifies the order of flex/grid items</td>
+                        <td><code>order: 2;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>gap</code></td>
+                        <td>Sets the gap between flex/grid items</td>
+                        <td><code>gap: 20px;</code></td>
+                    </tr>
+                </table>
+                <div class="info-box success">
+                    <strong>Tip:</strong> Mastering these properties will help you style almost any website layout!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-important-properties')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Units Module -->
+            <div class="module" id="css-units">
+                <h1>CSS Units</h1>
+                <p>CSS units define the measurement for properties like <code>width</code>, <code>margin</code>, <code>font-size</code>, etc. There are two main types:</p>
+                <h2>Absolute Units</h2>
+                <ul>
+                    <li><strong>px</strong> (pixels) – Most common for screens</li>
+                    <li><strong>cm</strong> (centimeters), <strong>mm</strong> (millimeters), <strong>in</strong> (inches), <strong>pt</strong> (points), <strong>pc</strong> (picas) – Used for print</li>
+                </ul>
+                <h2>Relative Units</h2>
+                <ul>
+                    <li><strong>em</strong> – Relative to the font-size of the element</li>
+                    <li><strong>rem</strong> – Relative to the font-size of the root element</li>
+                    <li><strong>%</strong> – Relative to the parent element</li>
+                    <li><strong>vw</strong> – Relative to 1% of the viewport width</li>
+                    <li><strong>vh</strong> – Relative to 1% of the viewport height</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  width: 50vw;
+  font-size: 2em;
+  margin: 5%;
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box success">
+                    <strong>Tip:</strong> Use relative units for responsive design!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-all-properties')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-specificity')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Specificity & !important Module -->
+            <div class="module" id="css-specificity">
+                <h1>CSS Specificity &amp; <code>!important</code></h1>
+                <p>Specificity determines which CSS rule is applied when multiple rules match the same element.</p>
+                <h2>Specificity Hierarchy</h2>
+                <ul>
+                    <li>Inline styles (e.g., <code>style=""</code>) – highest</li>
+                    <li>ID selectors (e.g., <code>#id</code>)</li>
+                    <li>Class, attribute, and pseudo-class selectors (e.g., <code>.class</code>, <code>[type="text"]</code>, <code>:hover</code>)</li>
+                    <li>Element and pseudo-element selectors (e.g., <code>div</code>, <code>::before</code>)</li>
+                </ul>
+                <h2>The <code>!important</code> Rule</h2>
+                <p>Adding <code>!important</code> to a CSS property value will override any other declarations, but use it sparingly!</p>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+p {
+  color: blue !important;
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box warning">
+                    <strong>Warning:</strong> Overusing <code>!important</code> can make your CSS hard to maintain.
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-units')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-pseudo')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Pseudo-classes & Pseudo-elements Module -->
+            <div class="module" id="css-pseudo">
+                <h1>CSS Pseudo-classes &amp; Pseudo-elements</h1>
+                <h2>Pseudo-classes</h2>
+                <p>Pseudo-classes style elements based on their state.</p>
+                <ul>
+                    <li><code>:hover</code> – when the mouse is over an element</li>
+                    <li><code>:active</code> – when an element is being activated (clicked)</li>
+                    <li><code>:focus</code> – when an element has focus</li>
+                    <li><code>:nth-child(n)</code> – selects the nth child</li>
+                </ul>
+                <h2>Pseudo-elements</h2>
+                <p>Pseudo-elements style parts of an element.</p>
+                <ul>
+                    <li><code>::before</code> – insert content before an element</li>
+                    <li><code>::after</code> – insert content after an element</li>
+                    <li><code>::first-letter</code> – style the first letter</li>
+                    <li><code>::first-line</code> – style the first line</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+a:hover {
+  color: red;
+}
+p::first-letter {
+  font-size: 200%;
+  color: #6366f1;
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-specificity')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-media-queries')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Media Queries Module -->
+            <div class="module" id="css-media-queries">
+                <h1>CSS Media Queries</h1>
+                <p>Media queries are used to apply CSS rules based on device characteristics, such as screen width, height, orientation, and resolution.</p>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+@media (max-width: 600px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box success">
+                    <strong>Tip:</strong> Use media queries for responsive web design!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-pseudo')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-filters')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Filters Module -->
+            <div class="module" id="css-filters">
+                <h1>CSS Filters</h1>
+                <p>The <code>filter</code> property applies graphical effects like blur, brightness, contrast, grayscale, and more to elements (usually images).</p>
+                <ul>
+                    <li><code>blur()</code></li>
+                    <li><code>brightness()</code></li>
+                    <li><code>contrast()</code></li>
+                    <li><code>grayscale()</code></li>
+                    <li><code>sepia()</code></li>
+                    <li><code>drop-shadow()</code></li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+img {
+  filter: grayscale(100%);
+}
+                        </div>
+                        <div class="demo-result">
+                            <img src="https://via.placeholder.com/100" style="filter: grayscale(100%);">
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-media-queries')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-gradients')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Gradients Module -->
+            <div class="module" id="css-gradients">
+                <h1>CSS Gradients</h1>
+                <p>Gradients are smooth transitions between two or more colors. CSS supports linear and radial gradients.</p>
+                <h2>Linear Gradient</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+}
+                        </div>
+                        <div class="demo-result" style="background:linear-gradient(to right, #6366f1, #8b5cf6);height:40px;"></div>
+                    </div>
+                </div>
+                <h2>Radial Gradient</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  background: radial-gradient(circle, #6366f1, #8b5cf6);
+}
+                        </div>
+                        <div class="demo-result" style="background:radial-gradient(circle, #6366f1, #8b5cf6);height:40px;"></div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-filters')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-shadows')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Shadows Module -->
+            <div class="module" id="css-shadows">
+                <h1>CSS Shadows</h1>
+                <p>CSS allows you to add shadow effects to text and elements using <code>box-shadow</code> and <code>text-shadow</code>.</p>
+                <h2>Box Shadow</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+div {
+  box-shadow: 4px 4px 12px #888;
+}
+                        </div>
+                        <div class="demo-result" style="box-shadow:4px 4px 12px #888; width:100px; height:40px; background:#f1f5f9;"></div>
+                    </div>
+                </div>
+                <h2>Text Shadow</h2>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+h1 {
+  text-shadow: 2px 2px 5px #6366f1;
+}
+                        </div>
+                        <div class="demo-result" style="text-shadow:2px 2px 5px #6366f1;">Shadowed Text</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-gradients')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-best-practices')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Best Practices & Organization Module -->
+            <div class="module" id="css-best-practices">
+                <h1>CSS Best Practices &amp; Organization</h1>
+                <ul>
+                    <li>Use meaningful class and ID names (e.g., <code>.main-header</code>, <code>#footer</code>)</li>
+                    <li>Follow a naming convention (e.g., <a href="http://getbem.com/" target="_blank">BEM</a>)</li>
+                    <li>Organize CSS into sections with comments</li>
+                    <li>Keep CSS modular and reusable</li>
+                    <li>Minimize the use of <code>!important</code></li>
+                    <li>Use external stylesheets for large projects</li>
+                </ul>
+                <div class="info-box success">
+                    <strong>Tip:</strong> Well-organized CSS is easier to maintain and scale!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-shadows')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-frameworks')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Frameworks Overview Module -->
+            <div class="module" id="css-frameworks">
+                <h1>CSS Frameworks Overview</h1>
+                <p>CSS frameworks are pre-prepared libraries that make web development faster and easier.</p>
+                <ul>
+                    <li><strong>Bootstrap</strong> – Most popular, responsive, lots of components</li>
+                    <li><strong>Tailwind CSS</strong> – Utility-first, highly customizable</li>
+                    <li><strong>Bulma</strong> – Modern, flexbox-based</li>
+                    <li><strong>Foundation</strong> – Responsive, enterprise-level</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Note:</strong> Frameworks help you build quickly, but learning plain CSS is essential!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-best-practices')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-debugging')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Debugging Tools Module -->
+            <div class="module" id="css-debugging">
+                <h1>CSS Debugging Tools</h1>
+                <p>Modern browsers provide powerful tools for inspecting and debugging CSS.</p>
+                <ul>
+                    <li><strong>Browser DevTools</strong> – Inspect elements, view applied styles, and test changes live</li>
+                    <li><strong>CSS Validators</strong> – Check your CSS for errors (e.g., <a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validator</a>)</li>
+                    <li><strong>Extensions</strong> – Tools like ColorZilla, WhatFont, etc.</li>
+                </ul>
+                <div class="info-box success">
+                    <strong>Tip:</strong> Right-click any element and choose "Inspect" to open DevTools!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-frameworks')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-flexbox-grid-deep')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Flexbox & Grid Deep Dive Module -->
+            <div class="module" id="css-flexbox-grid-deep">
+                <h1>Flexbox &amp; Grid Deep Dive</h1>
+                <h2>Flexbox Advanced</h2>
+                <ul>
+                    <li>Align items with <code>align-items</code> and <code>justify-content</code></li>
+                    <li>Order items with <code>order</code></li>
+                    <li>Grow and shrink with <code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code></li>
+                </ul>
+                <h2>Grid Advanced</h2>
+                <ul>
+                    <li>Named grid lines and areas</li>
+                    <li>Grid item placement with <code>grid-row</code>, <code>grid-column</code></li>
+                    <li>Responsive grids with <code>auto-fit</code> and <code>minmax()</code></li>
+                </ul>
+                <div class="info-box">
+                    <strong>Tip:</strong> Use Flexbox for 1D layouts, Grid for 2D layouts!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-debugging')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-print')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Print Styles Module -->
+            <div class="module" id="css-print">
+                <h1>CSS Print Styles</h1>
+                <p>Print stylesheets allow you to control how your web page looks when printed.</p>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example</div>
+                    <div class="example-content">
+                        <div class="code-block">
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  nav, .sidebar {
+    display: none;
+  }
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <strong>Tip:</strong> Use <code>@media print</code> to hide navigation and adjust layout for printing.
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-flexbox-grid-deep')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" onclick="showModule('css-accessibility')">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CSS Accessibility Module -->
+            <div class="module" id="css-accessibility">
+                <h1>CSS Accessibility</h1>
+                <p>Accessible CSS ensures your website is usable by everyone, including people with disabilities.</p>
+                <ul>
+                    <li>Use sufficient color contrast for text and backgrounds</li>
+                    <li>Never use color as the only way to convey information</li>
+                    <li>Use <code>:focus</code> styles for keyboard navigation</li>
+                    <li>Ensure readable font sizes and line heights</li>
+                    <li>Hide content visually but keep it accessible with <code>.sr-only</code> classes</li>
+                </ul>
+                <div class="example-box">
+                    <div class="example-header"><i class="fas fa-code"></i> Example: Focus Style</div>
+                    <div class="example-content">
+                        <div class="code-block">
+a:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box success">
+                    <strong>Tip:</strong> Test your site with a keyboard and screen reader!
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="showModule('css-print')">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-btn" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -807,8 +2060,9 @@ p {
             });
             
             // Add active class to clicked nav item
-            event.target.classList.add('active');
-            
+            if (event && event.target.classList.contains('nav-item')) {
+                event.target.classList.add('active');
+            }
             // Scroll to top of content
             document.querySelector('.content').scrollTop = 0;
         }

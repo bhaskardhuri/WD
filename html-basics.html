@@ -246,6 +246,19 @@
             <div class="nav-item" onclick="showSection('attributes')">
                 <i class="fas fa-cog"></i> Attributes & Properties
             </div>
+            <!-- Add these after the last nav-item in your sidebar -->
+<div class="nav-item" onclick="showSection('block-inline')">
+    <i class="fas fa-th-large"></i> Block vs Inline Elements
+</div>
+<div class="nav-item" onclick="showSection('forms-advanced')">
+    <i class="fas fa-edit"></i> Advanced Forms & Validation
+</div>
+<div class="nav-item" onclick="showSection('seo-accessibility')">
+    <i class="fas fa-universal-access"></i> SEO & Accessibility
+</div>
+<div class="nav-item" onclick="showSection('html5-apis')">
+    <i class="fas fa-plug"></i> HTML5 APIs
+</div>
         </nav>
 
         <main class="content">
@@ -766,6 +779,42 @@
                 </ul>
             </section>
 
+            <!-- Advanced Forms & Validation Section -->
+            <section class="content-section" id="forms-advanced">
+    <h2>Advanced Forms & Validation</h2>
+    <p>
+        HTML5 introduced new input types and built-in validation, making forms more powerful and user-friendly.
+    </p>
+    <h3>New Input Types</h3>
+    <ul>
+        <li><code>date</code>, <code>time</code>, <code>range</code>, <code>color</code>, <code>search</code>, <code>tel</code>, <code>url</code></li>
+    </ul>
+    <div class="example-box">
+        <h4>Practical Example</h4>
+        <div class="code-block">
+&lt;form&gt;
+    &lt;label&gt;Birthday: &lt;input type="date" name="bday"&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Favorite Color: &lt;input type="color" name="favcolor"&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Website: &lt;input type="url" name="website" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+        </div>
+    </div>
+    <h3>Validation Attributes</h3>
+    <ul>
+        <li><code>required</code> – Field must be filled out</li>
+        <li><code>pattern</code> – Regex pattern for input</li>
+        <li><code>min</code>, <code>max</code>, <code>step</code> – For numbers and dates</li>
+        <li><code>maxlength</code>, <code>minlength</code> – For text length</li>
+    </ul>
+    <div class="example-box">
+        <h4>Validation Example</h4>
+        <div class="code-block">
+&lt;input type="text" pattern="[A-Za-z]{3,}" required placeholder="At least 3 letters"&gt;
+        </div>
+    </div>
+</section>
+
             <!-- Media Section -->
             <section class="content-section" id="media">
                 <h2>Media Elements</h2>
@@ -969,6 +1018,107 @@
                     <li><strong>controls:</strong> Media controls are shown</li>
                 </ul>
             </section>
+
+            <!-- Block vs Inline Elements Section -->
+            <section class="content-section" id="block-inline">
+    <h2>Block vs Inline Elements</h2>
+    <p>
+        HTML elements are either <strong>block-level</strong> or <strong>inline</strong> by default.
+        Understanding the difference is crucial for layout and styling.
+    </p>
+    <h3>Block-level Elements</h3>
+    <ul>
+        <li>Start on a new line and take up the full width available.</li>
+        <li>Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;table&gt;</code></li>
+    </ul>
+    <div class="example-box">
+        <h4>Block Example</h4>
+        <div class="code-block">
+&lt;div style="background:#e0e7ff; padding:10px;"&gt;Block 1&lt;/div&gt;
+&lt;div style="background:#c7d2fe; padding:10px;"&gt;Block 2&lt;/div&gt;
+        </div>
+    </div>
+    <h3>Inline Elements</h3>
+    <ul>
+        <li>Do not start on a new line. Only take up as much width as necessary.</li>
+        <li>Examples: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;em&gt;</code></li>
+    </ul>
+    <div class="example-box">
+        <h4>Inline Example</h4>
+        <div class="code-block">
+&lt;p&gt;This is &lt;span style="color:#6366f1;"&gt;inline&lt;/span&gt; text.&lt;/p&gt;
+        </div>
+    </div>
+</section>
+
+            <!-- SEO & Accessibility Section -->
+            <section class="content-section" id="seo-accessibility">
+    <h2>SEO & Accessibility</h2>
+    <p>
+        Writing semantic HTML improves both search engine optimization (SEO) and accessibility for users with disabilities.
+    </p>
+    <h3>SEO Best Practices</h3>
+    <ul>
+        <li>Use semantic tags (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code>)</li>
+        <li>Always use <code>&lt;title&gt;</code> and <code>&lt;meta name="description"&gt;</code></li>
+        <li>Use heading tags in order (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>)</li>
+        <li>Use <code>alt</code> attributes for images</li>
+        <li>Use descriptive link text</li>
+    </ul>
+    <h3>Accessibility Tips</h3>
+    <ul>
+        <li>Label form fields with <code>&lt;label&gt;</code></li>
+        <li>Use <code>aria-*</code> attributes for extra context</li>
+        <li>Ensure sufficient color contrast</li>
+        <li>Test navigation with keyboard only</li>
+    </ul>
+    <div class="example-box">
+        <h4>Accessible Image Example</h4>
+        <div class="code-block">
+&lt;img src="logo.png" alt="YBIT College Logo"&gt;
+        </div>
+    </div>
+</section>
+
+            <!-- HTML5 APIs Section -->
+            <section class="content-section" id="html5-apis">
+    <h2>HTML5 APIs</h2>
+    <p>
+        HTML5 introduced several JavaScript APIs that enhance web applications.
+    </p>
+    <ul>
+        <li><strong>Geolocation API:</strong> Get user’s location</li>
+        <li><strong>Canvas API:</strong> Draw graphics and animations</li>
+        <li><strong>Local Storage API:</strong> Store data in the browser</li>
+        <li><strong>Drag and Drop API:</strong> Enable drag-and-drop features</li>
+        <li><strong>Audio/Video API:</strong> Control media playback</li>
+    </ul>
+    <div class="example-box">
+        <h4>Local Storage Example (JS)</h4>
+        <div class="code-block">
+&lt;script&gt;
+localStorage.setItem('username', 'student');
+alert(localStorage.getItem('username'));
+&lt;/script&gt;
+        </div>
+    </div>
+    <div class="example-box">
+        <h4>Canvas Example</h4>
+        <div class="code-block">
+&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#6366f1";
+ctx.fillRect(10, 10, 150, 80);
+&lt;/script&gt;
+        </div>
+    </div>
+</section>
+<div class="example-box">
+    <h4>Try It Yourself</h4>
+    <p>Copy the code above into your own HTML file and experiment with changes!</p>
+</div>
         </main>
     </div>
 
